@@ -11,3 +11,8 @@ st.title(apod_content['title'])
 st.image(apod_content['url'])
 st.write(apod_content['explanation'])
 
+# Image downloader
+image_link = requests.get(apod_content['url'])
+image = image_link.content
+with open('img.jpg', 'wb') as file:
+    file.write(image)
